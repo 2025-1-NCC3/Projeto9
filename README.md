@@ -13,7 +13,7 @@ Projeto 9
 ## Integrantes: <a href="https://github.com/AntonioPetri">Antônio Petri</a>, <a href="https://github.com/danmoribe">Daniel Moribe</a>, <a href="https://github.com/ThiagoAkira0">Thiago Mitami</a>, <a href="https://github.com/vitorzoken">Vitor Kenzo</a>
 
 
-## Professores Orientadores: <a href="https://www.linkedin.com/in/victorbarq/">Dr. Victor Von Doom</a>, <a href="https://www.linkedin.com/in/victorbarq/">Me. Saitama</a>, <a href="https://www.linkedin.com/in/victorbarq/">Dr. Strange</a>, <a href="https://www.linkedin.com/in/victorbarq/">Me. Yoda</a>, <a href="https://www.linkedin.com/in/victorbarq/">Dr. Gero</a>
+## Professores Orientadores: <a href="https://www.linkedin.com/in/victorbarq/">Prof. Victor Bruno Alexander Rosetti de Queiroz</a>
 
 ## Descrição
 
