@@ -13,7 +13,7 @@ Projeto 9
 ## Integrantes: <a href="https://github.com/AntonioPetri">Antônio Petri</a>, <a href="https://github.com/danmoribe">Daniel Moribe</a>, <a href="https://github.com/ThiagoAkira0">Thiago Mitami</a>, <a href="https://github.com/vitorzoken">Vitor Kenzo</a>
 
 
-## Professores Orientadores: <a href="https://www.linkedin.com/in/victorbarq/">Prof. Victor Bruno Alexander Rosetti de Queiroz</a>
+## Professores Orientadores: <a href="https://www.linkedin.com/in/victorbarq/">Prof. Victor Bruno Alexander Rosetti de Quiroz</a>
 
 ## Descrição
 
