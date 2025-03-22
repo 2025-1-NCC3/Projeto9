@@ -1,10 +1,13 @@
 package com.example.mapa;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -22,6 +25,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
+    private AppCompatButton btn_menu;
 
     List<Location> savedLocations;
     
@@ -33,13 +37,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        // Pega o SupportMapFragment e notifica quando o mapa está pronto para uso.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
         MyApplication myApplication = (MyApplication)getApplicationContext();
         savedLocations = myApplication.getMyLocations();
+
+        // Botão para abrir o menu
+        btn_menu = findViewById(R.id.btn_menu);
+        btn_menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MapsActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -56,7 +70,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
+        // Adiciona um ping em São Paulo
         LatLng sp = new LatLng(-23.5489, -46.6388);
        // mMap.addMarker(new MarkerOptions().position(sp).title("Ping em São Paulo"));
        // mMap.moveCamera(CameraUpdateFactory.newLatLng(sp));
