@@ -36,18 +36,10 @@ May the force be with you!
 |<br>
 |-->documentos<br>
   &emsp;|-->Entrega 1<br>
-    &emsp;&ensp;|-->Análise Descritiva de Dados<br>
-    &emsp;&ensp;|-->Programação Orientada a Objetos<br>
   &emsp;|-->Entrega 2<br>
-    &emsp;&ensp;|-->Análise Descritiva de Dados<br>
-    &emsp;&ensp;|-->Programação Orientada a Objetos<br>
   &emsp;|-->Entrega 3<br>
-    &emsp;&ensp;|-->Análise Descritiva de Dados<br>
-    &emsp;&ensp;|-->Programação Orientada a Objetos<br>
 |-->executáveis<br>
-  &emsp;|-->windows<br>
   &emsp;|-->android<br>
-  &emsp;|-->HTML<br>
 |-->imagens<br>
 |-->src<br>
   &emsp;|-->Backend<br>
