@@ -33,9 +33,9 @@ O Uber SafeRide é um aplicativo inovador focado na segurança de motoristas e p
 |-->imagens<br>
 |-->src<br>
   &emsp;|-->Entrega 1<br>
-    &emsp;|-->Backend<br>
-    &emsp;|-->Frontend<br>
-    &emsp;|-->VIDEO MOSTRANDO FUNCIONANDO (IMPORTANTE).txt<br>
+    &emsp;&emsp;|-->Backend<br>
+    &emsp;&emsp;|-->Frontend<br>
+    &emsp;&emsp;|-->VIDEO MOSTRANDO FUNCIONANDO (IMPORTANTE).txt<br>
   &emsp;|-->Entrega 2<br>
   &emsp;|-->Entrega 3<br>
 |readme.md<br>
