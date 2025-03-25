@@ -32,15 +32,42 @@ async function getTeste() {
 }
 const teste = await getTeste()
 
-
 app.get('/', (req, res) => {
     res.send("Olá do server!")
 })
 
+app.post("/add", async (req, res) => {
+    try {
+        const { nome, idade, email } = req.body; 
+
+        if (!nome || !idade || !email) {
+            return res.status(400).json({ error: "Nome, idade e email são necessários!" });
+        }
+
+        const [result] = await pool.query(
+            "INSERT INTO teste_link (nome, idade, email) VALUES (?, ?, ?)",
+            [nome, idade, email]
+        );
+
+        res.status(201).json({
+            message: "Salvo com sucesso!",
+            id: result.insertId,
+        });
+    } catch (error) {
+        console.error("Erro ao inserir data:", error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+});
+
 app.get("/tudo", function (req, res) {
-    res.send(teste)
-  });
+    try {
+        res.json(teste)
+    } catch (error) {
+        console.error("Error fetching data:", error)
+        res.status(500).json({ error: "Internal server error" })
+    }
+  })
 
 app.listen(port, () => {
-    console.log(`Servidor rodando na porta ${port}`);
-  });
+    console.log(`Servidor rodando na porta ${port}`)
+  })
