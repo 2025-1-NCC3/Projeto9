@@ -17,7 +17,7 @@ import com.example.mapa.R;
 public class FormLogin extends AppCompatActivity {
 
     private TextView text_tela_cadastro;
-    private AppCompatButton btn_entrar;
+    private AppCompatButton btn_entrar, btn_teste;
 
 
 
@@ -33,7 +33,9 @@ public class FormLogin extends AppCompatActivity {
         });
 
 //      Iniciar o componente
-        IniciarComponentes();
+        text_tela_cadastro = findViewById(R.id.text_tela_cadastro);
+        btn_entrar = findViewById(R.id.btn_entrar);
+        btn_teste = findViewById(R.id.btn_teste);
 
 //      Fazer o TextView aceitar cliques, virar um botão
         text_tela_cadastro.setOnClickListener(new View.OnClickListener() {
@@ -44,23 +46,18 @@ public class FormLogin extends AppCompatActivity {
             }
         });
 
-        btn_entrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(FormLogin.this, MapsActivity.class);
-                startActivity(intent);
-            }
+        btn_entrar.setOnClickListener(view -> {
+            Intent intent = new Intent(FormLogin.this, MapsActivity.class);
+            startActivity(intent);
+        });
+
+        btn_teste.setOnClickListener(view -> {
+            Intent intent = new Intent(FormLogin.this, TesteBackEnd.class);
+            startActivity(intent);
         });
 
 
 
 
     }
-
-    //  Iniciar
-    private void IniciarComponentes(){
-        text_tela_cadastro = findViewById(R.id.text_tela_cadastro);
-        btn_entrar = findViewById(R.id.btn_entrar);
-    }
-
 }
