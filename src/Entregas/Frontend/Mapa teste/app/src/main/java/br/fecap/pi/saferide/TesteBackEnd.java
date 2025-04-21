@@ -1,7 +1,7 @@
-package com.example.mapa;
+package br.fecap.pi.saferide;
 
-import static com.example.mapa.Criptografia.encryptForServer;
-import static com.example.mapa.Usuario.decryptFromServer;
+import static br.fecap.pi.saferide.Criptografia.encryptForServer;
+import static br.fecap.pi.saferide.Usuario.decryptFromServer;
 
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import br.fecap.pi.saferide.R;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;

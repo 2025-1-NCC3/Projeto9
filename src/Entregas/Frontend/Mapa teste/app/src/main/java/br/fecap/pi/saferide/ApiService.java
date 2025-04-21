@@ -1,4 +1,4 @@
-package com.example.mapa;
+package br.fecap.pi.saferide;
 
 import java.util.List;
 import retrofit2.Call;

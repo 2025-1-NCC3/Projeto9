@@ -1,4 +1,4 @@
-package com.example.mapa;
+package br.fecap.pi.saferide;
 public class Usuario {
     private String nome;
     private int idade;

@@ -4,11 +4,11 @@
     }
 
 android {
-    namespace 'com.example.mapa'
+    namespace 'br.fecap.pi.saferide'
     compileSdk 35
 
     defaultConfig {
-        applicationId "com.example.mapa"
+        applicationId "br.fecap.pi.saferide"
         minSdk 24
         targetSdk 35
         versionCode 1

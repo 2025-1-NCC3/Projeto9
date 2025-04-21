@@ -1,4 +1,4 @@
-package com.example.mapa;
+package br.fecap.pi.saferide;
 
 public class Criptografia {
     // Chaves de criptografia

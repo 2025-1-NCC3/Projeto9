@@ -13,7 +13,7 @@
     <uses-feature android:name="android.hardware.location.gps" />
 
     <application
-        android:name=".MyApplication"
+        android:name="br.fecap.pi.saferide.MyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -26,7 +26,7 @@
 
         <!-- FrontEnd Login, Cadastro e Teste BackEnd -->
         <activity
-            android:name=".FormLogin"
+            android:name="br.fecap.pi.saferide.FormLogin"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,10 +35,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".FormCadastro"
+            android:name="br.fecap.pi.saferide.FormCadastro"
             android:exported="false" />
         <activity
-            android:name=".TesteBackEnd"
+            android:name="br.fecap.pi.saferide.TesteBackEnd"
             android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
@@ -56,14 +56,14 @@
             android:value="${MAPS_API_KEY}" />
 
         <activity
-            android:name=".MapsActivity"
+            android:name="br.fecap.pi.saferide.MapsActivity"
             android:exported="false"
             android:label="@string/title_activity_maps" />
         <activity
-            android:name=".ShowSavedLocationsList"
+            android:name="br.fecap.pi.saferide.ShowSavedLocationsList"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name="br.fecap.pi.saferide.MainActivity"
             android:exported="false" />
 
 

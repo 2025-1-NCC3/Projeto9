@@ -1,4 +1,4 @@
-package com.example.mapa;
+package br.fecap.pi.saferide;
 import android.app.Application;
 import android.location.Location;
 
