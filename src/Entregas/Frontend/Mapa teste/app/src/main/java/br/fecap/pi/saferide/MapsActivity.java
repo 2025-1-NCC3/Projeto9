@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentActivity;
 import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
     private AppCompatButton btn_menu;
+    private int userId;
 
     List<Location> savedLocations;
     
@@ -34,6 +36,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        userId = getIntent().getIntExtra("USER_ID", 0);
+        if (userId == 0) {
+            Log.e("MAPS", "Erro: ID do usuário não recebido");
+            Toast.makeText(this, "Erro: Sessão inválida", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+
+        // Use o userId conforme necessário
+        Log.d("MapsActivity", "ID do usuário: " + userId);
+
+
+
 
         binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

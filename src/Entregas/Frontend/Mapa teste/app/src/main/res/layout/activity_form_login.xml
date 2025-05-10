@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background"
-        tools:context="br.fecap.pi.saferide.FormLogin">
+        tools:context=".FormLogin">
 
         <ImageView
             android:id="@+id/imageView"
@@ -37,7 +37,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <EditText
-            android:id="@+id/edit_email"
+            android:id="@+id/editLoginEmail"
             style="@style/Edit_Text"
             android:textColor="@color/black"
             android:hint="@string/hint_email"
@@ -48,7 +48,7 @@
             app:layout_constraintTop_toTopOf="@+id/containerComponets" />
 
         <EditText
-            android:id="@+id/edit_senha"
+            android:id="@+id/editLoginSenha"
             style="@style/Edit_Text"
             android:textColor="@color/black"
             android:hint="@string/hint_senha"
@@ -56,19 +56,19 @@
             android:drawableRight="@drawable/ic_eye"
             app:layout_constraintEnd_toEndOf="@+id/containerComponets"
             app:layout_constraintStart_toStartOf="@+id/containerComponets"
-            app:layout_constraintTop_toBottomOf="@+id/edit_email"/>
+            app:layout_constraintTop_toBottomOf="@+id/editLoginEmail"/>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_entrar"
+            android:id="@+id/btnEntrar"
             style="@style/Button"
             android:text="@string/text_entrar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_senha"
+            app:layout_constraintTop_toBottomOf="@+id/editLoginSenha"
             android:background="@drawable/button"/>
 
         <ProgressBar
-            android:id="@+id/progressbar"
+            android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -78,7 +78,7 @@
             android:visibility="invisible"/>
 
         <TextView
-            android:id="@+id/text_tela_cadastro"
+            android:id="@+id/textTelaCadastro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/text_cadastro"
@@ -89,21 +89,7 @@
             android:layout_marginBottom="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/progressbar" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_teste"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button"
-            style="@style/Button"
-            android:text="TESTE COM O SERVIDOR"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.944" />
+            app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

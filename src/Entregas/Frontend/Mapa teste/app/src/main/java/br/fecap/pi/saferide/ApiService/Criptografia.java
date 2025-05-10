@@ -1,4 +1,4 @@
-package br.fecap.pi.saferide;
+package br.fecap.pi.saferide.ApiService;
 
 public class Criptografia {
     // Chaves de criptografia
