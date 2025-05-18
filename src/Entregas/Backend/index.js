@@ -101,7 +101,7 @@ app.get("/", (req, res) => {
  * Recebe: { nome, email, senha } (todos criptografados)
  * Retorna: { message, id } ou erro
  */
-app.post("/cadastro", async (req, res) => {
+app.post("/usuario/cadastro", async (req, res) => {
   console.log("📨 Requisição de cadastro recebida:", req.body);
 
   try {
@@ -217,7 +217,7 @@ app.post("/login", async (req, res) => {
  * Lista todos os usuários (com dados criptografados)
  * Uso: apenas para desenvolvimento/debug
  */
-app.get("/tudo", async (req, res) => {
+app.get("/usuario/tudo", async (req, res) => {
   try {
     const [rows] = await pool.query("SELECT * FROM usuario");
 
@@ -243,7 +243,7 @@ app.get("/tudo", async (req, res) => {
  * Lista todos os usuários (dados originais)
  * Uso: apenas para desenvolvimento/debug
  */
-app.get("/tudonormal", async (req, res) => {
+app.get("/usuario/tudonormal", async (req, res) => {
   try {
     const [rows] = await pool.query("SELECT * FROM usuario");
     res.json(rows);
@@ -295,6 +295,31 @@ app.post("/localizacao/salvar", async (req, res) => {
     res.status(500).json({
       sucesso: false,
       mensagem: "Erro ao salvar localização",
+    });
+  }
+});
+
+/**
+ * Busca todas as localizações
+ * Recebe: IDUsuario
+ * Retorna: Array de localizações
+ */
+
+app.get("/localizacao/tudo", async (req, res) => {
+  try {
+    const [rows] = await pool.query(
+      "SELECT * FROM localizacoes ORDER BY dataHora DESC"
+    );
+
+    res.json({
+      sucesso: true,
+      localizacoes: rows,
+    });
+  } catch (error) {
+    console.error("Erro ao buscar localizações:", error);
+    res.status(500).json({
+      sucesso: false,
+      mensagem: "Erro ao buscar localizações",
     });
   }
 });

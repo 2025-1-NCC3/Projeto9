@@ -86,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
         tv_updates = findViewById(R.id.tv_updates);
         tv_address = findViewById(R.id.tv_address);
         sw_gps = findViewById(R.id.sw_gps);
-        sw_locationupdates = findViewById(R.id.sw_locationsupdates);
         btn_newWayPoint = findViewById(R.id.btn_newWayPoint);
         btn_showWaypointList = findViewById(R.id.btn_showWayPointList);
         btn_showMap = findViewById(R.id.btn_showMap);

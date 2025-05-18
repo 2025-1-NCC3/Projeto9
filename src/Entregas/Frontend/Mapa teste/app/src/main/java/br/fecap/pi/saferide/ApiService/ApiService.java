@@ -9,11 +9,11 @@ import retrofit2.http.*;
 
 public interface ApiService {
     // Endpoint GET para buscar todos os usuários
-    @GET("tudo")
+    @GET("usuario/tudo")
     Call<List<Usuario>> getTodosUsuarios();
 
     // Endpoint POST para adicionar novo usuário
-    @POST("cadastro")
+    @POST("usuario/cadastro")
     Call<RespostaServidor> adicionarUsuario(@Body Usuario usuario);
 
     @FormUrlEncoded
@@ -26,7 +26,11 @@ public interface ApiService {
     @POST("localizacao/salvar")
     Call<RespostaServidor> salvarLocalizacao(@Body Localizacao localizacao);
 
-    @GET("localizacao/{IDUsuario}")
-    Call<RespostaLocalizacoes> buscarLocalizacoes(@Path("IDUsuario") int IDUsuario);
+    @GET("localizacao/tudo")
+    Call<RespostaLocalizacoes> buscarTodasLocalizacoes();
+
+    // Caso queira buscar por ID
+//    @GET("localizacao/{IDUsuario}")
+//    Call<RespostaLocalizacoes> buscarLocalizacoes(@Path("IDUsuario") int IDUsuario);
 
 }

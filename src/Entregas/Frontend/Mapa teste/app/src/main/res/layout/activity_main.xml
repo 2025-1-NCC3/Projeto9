@@ -111,10 +111,10 @@
         style="@style/TextLabel"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:text="Sensor:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sw_gps" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_labelupdates" />
 
     <TextView
         android:id="@+id/tv_sensor"
@@ -131,14 +131,14 @@
         style="@style/TextLabel"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:text="Atualizações:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sw_locationsupdates" />
+        app:layout_constraintTop_toBottomOf="@+id/sw_gps" />
 
     <TextView
         android:id="@+id/tv_updates"
         style="@style/TextValue"
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Off"
@@ -147,6 +147,7 @@
 
     <TextView
         android:id="@+id/tv_address"
+        style="@style/TextValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@+id/tv_lbladdress"
@@ -162,23 +163,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_labelspeed" />
 
-    <Switch
-        android:id="@+id/sw_locationsupdates"
-        style="@style/SwitchStyle"
-        android:text="Atualização de localização"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider" />
 
     <Switch
         android:id="@+id/sw_gps"
         style="@style/SwitchStyle"
+        android:layout_marginTop="16dp"
         android:text="GPS/Economia de bateria"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_labelupdates" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
 
     <View
         android:id="@+id/divider"
