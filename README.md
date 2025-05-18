@@ -67,3 +67,10 @@ Para abrir este projeto você necessita das seguintes ferramentas:
 ## 🎓 Referências
 
 Aqui estão as referências usadas no projeto.
+
+[Android Studio - Design tela de Login | Cadastro | Perfil de usuário #1 Completo](https://www.youtube.com/watch?v=OxiUt0CAp_M&t=4894s)
+[Android Studio GPS location tracker tutorial](https://www.youtube.com/watch?v=V62sxpyxapU&list=PLhPyEFL5u-i0vMDegCPbfD3ZNz69sf46I)
+[Extrair dados da internet](https://developer.android.com/codelabs/basic-android-kotlin-compose-getting-data-internet?hl=pt-br#0)
+[Getting started with Retrofit | android studio | java](https://www.youtube.com/watch?v=lz5lPAdA3fQ)
+
+
