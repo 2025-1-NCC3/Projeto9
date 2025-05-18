@@ -19,17 +19,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import br.fecap.pi.saferide.ApiService.ApiService;
 import br.fecap.pi.saferide.ApiService.RespostaServidor;
+import br.fecap.pi.saferide.ApiService.RetrofitClient;
 import br.fecap.pi.saferide.ApiService.Usuario;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-import okhttp3.OkHttpClient;
+
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class FormCadastro extends AppCompatActivity {
 
@@ -64,18 +63,7 @@ public class FormCadastro extends AppCompatActivity {
 
     // 2. Configuração Retrofit
     private void setupRetrofit() {
-        OkHttpClient client = new OkHttpClient.Builder()
-                .connectTimeout(20, TimeUnit.SECONDS)
-                .readTimeout(20, TimeUnit.SECONDS)
-                .build();
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .client(client)
-                .baseUrl("https://qhq65s-8080.csb.app/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        apiService = retrofit.create(ApiService.class);
+        apiService = RetrofitClient.getApiService();
     }
 
     // 3. Toggle de Senha
@@ -120,8 +108,9 @@ public class FormCadastro extends AppCompatActivity {
 
     // Navegação para Login
     private void navigateToLogin() {
-        startActivity(new Intent(this, FormLogin.class));
-        finish();
+        Intent intent = new Intent(this, FormLogin.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
     // Testar a conexão

@@ -4,10 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context="br.fecap.pi.saferide.MainActivity">
+
+
 
     <TextView
         android:id="@+id/tv_labellat"
+        style="@style/TextLabel"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -17,6 +21,7 @@
 
     <TextView
         android:id="@+id/tv_lat"
+        style="@style/TextValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -26,6 +31,7 @@
 
     <TextView
         android:id="@+id/tv_labellon"
+        style="@style/TextLabel"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -35,6 +41,7 @@
 
     <TextView
         android:id="@+id/tv_lon"
+        style="@style/TextValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -44,6 +51,7 @@
 
     <TextView
         android:id="@+id/tv_labelaltitude"
+        style="@style/TextLabel"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -53,6 +61,7 @@
 
     <TextView
         android:id="@+id/tv_altitude"
+        style="@style/TextValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0.00"
@@ -61,6 +70,7 @@
 
     <TextView
         android:id="@+id/tv_labelaccuracy"
+        style="@style/TextLabel"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -70,6 +80,7 @@
 
     <TextView
         android:id="@+id/tv_accuracy"
+        style="@style/TextValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0.00"
@@ -78,6 +89,7 @@
 
     <TextView
         android:id="@+id/tv_labelspeed"
+        style="@style/TextLabel"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -87,6 +99,7 @@
 
     <TextView
         android:id="@+id/tv_speed"
+        style="@style/TextValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0.00"
@@ -95,6 +108,7 @@
 
     <TextView
         android:id="@+id/tv_labelsensor"
+        style="@style/TextLabel"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -104,6 +118,8 @@
 
     <TextView
         android:id="@+id/tv_sensor"
+        style="@style/TextValue"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Torres de celular + WIFI"
@@ -112,6 +128,7 @@
 
     <TextView
         android:id="@+id/tv_labelupdates"
+        style="@style/TextLabel"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="Atualizações:"
@@ -120,32 +137,13 @@
 
     <TextView
         android:id="@+id/tv_updates"
+        style="@style/TextValue"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Off"
         app:layout_constraintStart_toEndOf="@+id/tv_labelupdates"
         app:layout_constraintTop_toTopOf="@+id/tv_labelupdates" />
-
-    <Switch
-        android:id="@+id/sw_locationsupdates"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:checked="true"
-        android:text="Atualização de localização"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider" />
-
-    <Switch
-        android:id="@+id/sw_gps"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="GPS/Economi de bateria"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_labelupdates" />
 
     <TextView
         android:id="@+id/tv_address"
@@ -156,12 +154,31 @@
 
     <TextView
         android:id="@+id/tv_lbladdress"
+        style="@style/TextLabel"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Endereço:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_labelspeed" />
+
+    <Switch
+        android:id="@+id/sw_locationsupdates"
+        style="@style/SwitchStyle"
+        android:text="Atualização de localização"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <Switch
+        android:id="@+id/sw_gps"
+        style="@style/SwitchStyle"
+        android:text="GPS/Economia de bateria"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_labelupdates" />
+
+
 
     <View
         android:id="@+id/divider"
@@ -177,6 +194,7 @@
 
     <TextView
         android:id="@+id/tv_labelCrumbCounter"
+        style="@style/TextLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -186,6 +204,8 @@
 
     <TextView
         android:id="@+id/tv_countOfCrumbs"
+        style="@style/TextValue"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -193,30 +213,29 @@
         app:layout_constraintStart_toEndOf="@+id/tv_labelCrumbCounter"
         app:layout_constraintTop_toBottomOf="@+id/tv_labelsensor" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_newWayPoint"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        style="@style/Button"
+        android:background="@drawable/button"
         android:text="Novo Ping"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_labelCrumbCounter" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_showWayPointList"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/Button"
+        android:background="@drawable/button"
         android:text="Mostrar lista de pings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_newWayPoint" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_showMap"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/Button"
+        android:background="@drawable/button"
         android:text="Mostrar Mapa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -3,11 +3,12 @@ package br.fecap.pi.saferide;
 import static br.fecap.pi.saferide.ApiService.Criptografia.encryptForServer;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
-import android.util.Log;
+
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -15,22 +16,26 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.app.ActivityCompat;
 
 import br.fecap.pi.saferide.ApiService.ApiService;
+import br.fecap.pi.saferide.ApiMap.IDUsuario;
 import br.fecap.pi.saferide.ApiService.RespostaLogin;
 
-import java.util.concurrent.TimeUnit;
 
-import okhttp3.OkHttpClient;
+import br.fecap.pi.saferide.ApiService.RetrofitClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+
+import android.Manifest;
 
 public class FormLogin extends AppCompatActivity {
+
+    private static final int PERMISSIONS_FINE_LOCATION = 100;
 
     // Componentes de UI
     private EditText editLoginEmail, editLoginSenha;
@@ -47,6 +52,7 @@ public class FormLogin extends AppCompatActivity {
         setContentView(R.layout.activity_form_login);
 
         initViews();
+        checkLocationPermission();
         setupRetrofit();
         setupPasswordToggle();
         setupLoginButton();
@@ -64,18 +70,7 @@ public class FormLogin extends AppCompatActivity {
 
     // 2. Configuração Retrofit (Reutilizável)
     private void setupRetrofit() {
-        OkHttpClient client = new OkHttpClient.Builder()
-                .connectTimeout(20, TimeUnit.SECONDS)
-                .readTimeout(20, TimeUnit.SECONDS)
-                .build();
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .client(client)
-                .baseUrl("https://qhq65s-8080.csb.app/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        apiService = retrofit.create(ApiService.class);
+        apiService = RetrofitClient.getApiService();
     }
 
     // 3. Toggle de Senha
@@ -136,7 +131,8 @@ public class FormLogin extends AppCompatActivity {
                     RespostaLogin resposta = response.body();
                     if (resposta != null) {
                         if (resposta.isSucesso()) {
-                            navigateToMaps(resposta.getUsuario().getIDUsuario());
+                            IDUsuario.setUserId(resposta.getUsuario().getIDUsuario());
+                            navigateToMaps();
                         } else {
                             // Mensagem personalizada para credenciais inválidas
                             showError("E-mail ou senha incorretos. Tente novamente.");
@@ -158,14 +154,7 @@ public class FormLogin extends AppCompatActivity {
         });
     }
 
-    // 7. Ir para a próxima tela com o ID
-    private void navigateToMaps(int userId) {
-        Intent intent = new Intent(this, MapsActivity.class);
-        intent.putExtra("USER_ID", userId); // Adiciona o ID como extra
-        startActivity(intent);
-    }
-
-    // 8. Tratamento da Resposta
+    // 7. Tratamento da Resposta
     private void handleLoginResponse(Response<RespostaLogin> response) {
         if (response.isSuccessful() && response.body() != null) {
             RespostaLogin resposta = response.body();
@@ -180,7 +169,7 @@ public class FormLogin extends AppCompatActivity {
         }
     }
 
-    // 9. Métodos Auxiliares
+    // 8. Métodos Auxiliares
     private void togglePasswordVisibility(EditText editText) {
         boolean isPasswordVisible = (editText.getTransformationMethod() instanceof PasswordTransformationMethod);
         editText.setTransformationMethod(isPasswordVisible ?
@@ -200,8 +189,9 @@ public class FormLogin extends AppCompatActivity {
     }
 
     private void navigateToMaps() {
-        startActivity(new Intent(this, MapsActivity.class));
-        finish();
+        Intent intent = new Intent(this, MapsActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
     }
 
     // 9. Redirecionamento para Cadastro
@@ -210,5 +200,27 @@ public class FormLogin extends AppCompatActivity {
             startActivity(new Intent(this, FormCadastro.class));
         });
     }
+
+    // Metodo para pedir permissão de GPS
+
+    private void checkLocationPermission() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    PERMISSIONS_FINE_LOCATION);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == PERMISSIONS_FINE_LOCATION) {
+            if (grantResults.length > 0 && grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "Permissão de localização é necessária para o funcionamento do app", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
 }
 

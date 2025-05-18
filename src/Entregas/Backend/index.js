@@ -256,6 +256,76 @@ app.get("/tudonormal", async (req, res) => {
   }
 });
 
+/**
+ * Salva uma nova localização
+ * Recebe: { IDUsuario, latitude, longitude, altitude, accuracy, speed, endereco }
+ */
+app.post("/localizacao/salvar", async (req, res) => {
+  try {
+    const {
+      IDUsuario,
+      latitude,
+      longitude,
+      altitude,
+      accuracy,
+      speed,
+      endereco,
+    } = req.body;
+
+    // Validação básica
+    if (!IDUsuario || !latitude || !longitude) {
+      return res.status(400).json({
+        sucesso: false,
+        mensagem: "IDUsuario, latitude e longitude são obrigatórios",
+      });
+    }
+
+    const [result] = await pool.query(
+      "INSERT INTO localizacoes (IDUsuario, latitude, longitude, altitude, accuracy, speed, endereco) VALUES (?, ?, ?, ?, ?, ?, ?)",
+      [IDUsuario, latitude, longitude, altitude, accuracy, speed, endereco]
+    );
+
+    res.status(201).json({
+      sucesso: true,
+      mensagem: "Localização salva com sucesso",
+      IDLocalizacao: result.insertId,
+    });
+  } catch (error) {
+    console.error("Erro ao salvar localização:", error);
+    res.status(500).json({
+      sucesso: false,
+      mensagem: "Erro ao salvar localização",
+    });
+  }
+});
+
+/**
+ * Busca localizações por usuário
+ * Recebe: IDUsuario
+ * Retorna: Array de localizações
+ */
+app.get("/localizacao/:IDUsuario", async (req, res) => {
+  try {
+    const { IDUsuario } = req.params;
+
+    const [rows] = await pool.query(
+      "SELECT * FROM localizacoes WHERE IDUsuario = ? ORDER BY dataHora DESC",
+      [IDUsuario]
+    );
+
+    res.json({
+      sucesso: true,
+      localizacoes: rows,
+    });
+  } catch (error) {
+    console.error("Erro ao buscar localizações:", error);
+    res.status(500).json({
+      sucesso: false,
+      mensagem: "Erro ao buscar localizações",
+    });
+  }
+});
+
 // ==============================================
 // 5. Inicialização do Servidor
 // ==============================================

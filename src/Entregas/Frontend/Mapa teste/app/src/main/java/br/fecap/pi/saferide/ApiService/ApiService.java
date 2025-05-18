@@ -1,12 +1,11 @@
 package br.fecap.pi.saferide.ApiService;
 
 import java.util.List;
+
+import br.fecap.pi.saferide.ApiMap.Localizacao;
+import br.fecap.pi.saferide.ApiMap.RespostaLocalizacoes;
 import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.GET;
-import retrofit2.http.POST;
+import retrofit2.http.*;
 
 public interface ApiService {
     // Endpoint GET para buscar todos os usuários
@@ -23,4 +22,11 @@ public interface ApiService {
             @Field("email") String email,
             @Field("senha") String senha
     );
+
+    @POST("localizacao/salvar")
+    Call<RespostaServidor> salvarLocalizacao(@Body Localizacao localizacao);
+
+    @GET("localizacao/{IDUsuario}")
+    Call<RespostaLocalizacoes> buscarLocalizacoes(@Path("IDUsuario") int IDUsuario);
+
 }
