@@ -76,4 +76,6 @@ Aqui estão as referências usadas no projeto.
 
 [Getting started with Retrofit | android studio | java](https://www.youtube.com/watch?v=lz5lPAdA3fQ)
 
+[Configurando o Node como ambiente de desenvolvimento](https://developer.mozilla.org/pt-BR/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/development_environment)
+
 
